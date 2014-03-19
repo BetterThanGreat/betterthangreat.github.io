@@ -1,0 +1,201 @@
+/* Grid */
+* {
+	box-sizing: border-box;
+}
+
+.grid {
+	width: 100%;
+	padding: 0 10%;
+}
+
+.grid:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+[class^="grid-"] {
+	float: left;
+	display: inline-block;
+}
+
+.grid-1-2 {
+	width: 50%;
+}
+.grid-1-3 {
+	width: 33%;
+}
+.grid-2-3 {
+	width: 66%;
+}
+
+body {
+	line-height: 1.8em;
+	margin-top: -40px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	color: #292929;
+}
+
+body > section {
+	margin: 40px auto;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1,h2,h3 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	letter-spacing: .1em;
+}
+
+h1 { font-size: 2.4em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
+
+a.btn {
+	display: inline-block;
+	width: 100%;
+
+	background: #ec6f6d;
+	text-decoration: none;
+	text-align: center;
+	color: #292929;
+	padding: 0 5px;
+
+	border-bottom: 3px solid #E65E5C;
+
+	margin-top: 10px;
+	border-radius: 20px;
+}
+
+a.btn:active {
+	border-bottom: none;
+	border-top: 3px solid white;
+}
+
+a.btn.bluebg:active {
+	border-top-color: cornflowerblue;
+}
+
+a.btn:hover {
+	color: #FFFA81;
+}
+
+a.btn:before, a.btn:after {
+	content: '★';
+	padding: 0 10px;
+	color: #FFFA81;
+}
+
+a.btn:before { float: left; }
+a.btn:after { float: right; }
+
+.home-module {
+	padding: 50px;
+	line-height: 2.5em;
+}
+
+#slogan span {
+	color: #FFFA81;
+}
+
+#splash {
+	position: relative;
+	background: #ec6f6d;
+	color: #3A2C22;
+
+	text-align: center;
+	line-height: 3em;
+
+	padding: 80px 0 0 0;
+}
+
+#splash .social {
+	position: absolute;
+	top: 0; right: 0;
+	list-style-type: none;
+}
+
+#splash .social li {
+	display: inline-block;
+}
+
+#splash .social li a {
+	display: block;
+	padding: 10px;
+	color: #FFFA81;
+	text-decoration: none;
+}
+
+#splash .social li a:hover {
+	color: WHITE;
+}
+
+#splash img {
+	position: relative;
+	bottom: 0;
+	margin: 30px 0 -19px 0;
+}
+
+#what {
+
+}
+
+#what li {
+	text-align: center;
+	padding: 10px 35px;
+}
+
+#what li i {
+	font-size: 3em;
+
+	display: inline-block;
+	margin: 15px;
+	padding: 20px;
+	border-radius: 50%;
+	background: cornflowerblue;
+
+	color: WHITE;
+}
+
+#what li p {
+	font-size: .8em;
+	color: lightgray;
+}
+
+#what li a {
+	text-decoration: none;
+}
+
+#what li a:hover {
+}
+
+#caseStudy {
+	background: cornflowerblue;
+}
+
+#caseStudy p {
+	color: WHITE;
+}
+
+#testimonials {
+}
+
+#testimonials h2 {
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+#testimonials li img {
+	float: left;
+	border-radius: 50%;
+	padding: 5px 10px 0 0;
+}
+
+#testimonials footer {
+	float: right;
+}
