@@ -147,6 +147,16 @@ a.btn:after { float: right; }
 #what li {
 	text-align: center;
 	padding: 10px 35px;
+
+	border-radius: 3px;
+
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	-o-transition: all .3s linear;
+}
+
+#what li:hover {
+	box-shadow: 0 0 3px gray;
 }
 
 #what li i {
@@ -158,12 +168,14 @@ a.btn:after { float: right; }
 	border-radius: 50%;
 	background: cornflowerblue;
 
+	box-shadow: 3px 3px 0 rgb(68, 68, 224);
+
 	color: WHITE;
 }
 
 #what li p {
 	font-size: .8em;
-	color: lightgray;
+	color: gray;
 }
 
 #what li a {
@@ -186,7 +198,6 @@ a.btn:after { float: right; }
 
 #testimonials h2 {
 	text-align: center;
-	margin-bottom: 1.5em;
 }
 
 #testimonials li img {
