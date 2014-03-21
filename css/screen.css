@@ -165,6 +165,7 @@ a.btn:after { float: right; }
 
 @media screen and (max-width: 800px) {
 	#splash .browser {
+		margin-top: 0;
 		margin-left: 10px;
 		margin-right: 10px;
 	}
