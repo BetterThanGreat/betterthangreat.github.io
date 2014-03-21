@@ -17,32 +17,52 @@
 
 		<!-- Splash! -->
 		<section id="splash">
-			<header>
-				<h1><img height="200" src="images/btglogo1.png"></h1>
 
-				<ul class="social">
-					<li><a href="#"><i class="icon-twitter"></i></a></li>
-					<li><a href="#"><i class="icon-facebook"></i></a></li>
-					<li><a href="#"><i class="icon-github"></i></a></li>
-				</ul>
-			</header>
+			<canvas id="myCanvas">
+			</canvas>
 
-			<h2 id="slogan">We Build <span>Incredible</span> Digital Products</h2>
+			<ul class="social">
+				<li><a href="#"><i class="icon-twitter"></i></a></li>
+				<li><a href="#"><i class="icon-facebook"></i></a></li>
+				<li><a href="#"><i class="icon-github"></i></a></li>
+			</ul>
 
-			<img src="images/browser.png" />
+			<div class="browser">
+				<div class="content">
+					<h1 class="logo"><img src="images/btglogo1.png" height="150" alt="Better Than Great"></h1>
+					<h2 id="slogan">We Build <span>Incredible</span> Digital Products</h2>
+
+					<noscript>
+						<style>
+							#hide-call {
+								max-height: 200px;
+							}
+						</style>
+					</noscript>
+
+					<div id="hide-call">
+						<p>Don't believe us? That's fine. Just take a look around. I'm sure we'll convince you. Or...</p>
+						<a class="btn width-50 center" href="#">Hire Us</a>
+					</div>
+				</div>
+			</div>
+
 		</section>
 
 		<!-- Navigation -->
 
 		<!-- Headline -->
-		<section id="about" class="grid">
-			<div class="grid-1-2 home-module">
-				<h2>Your Vision. Brought to Life.</h2>
-				<p>We're a full-stack digital product agency specializing in developing for the web and mobile. We &hearts; the web, and we want to help make your vision a reality!</p>
-				<a class="btn" style="margin-top: 60px;" href="#">Let's make your dream come true</a>
-			</div>
-			<div class="grid-1-2 home-module" style="text-align: center;">
-				<img src="images/imac.png" />
+		<section id="about">
+			<div class="grid">
+				<div class="grid-1-2 home-module" style="text-align: center;">
+					<img src="images/imac.png" />
+				</div>
+
+				<div class="grid-1-2 home-module">
+					<h2 style="margin-bottom: 20px;">Your Vision. Brought to Life.</h2>
+					<p>We're a full-stack digital product agency specializing in developing for the web and mobile. We &hearts; the web, and we want to help make your vision a reality!</p>
+					<a class="btn" style="margin-top: 60px;" href="#">Make your dream come true</a>
+				</div>
 			</div>
 		</section>
 
@@ -79,9 +99,9 @@
 			</div>
 
 			<div class="grid-1-2 home-module">
-				<h3>Case Study: ForcedFable.com</h3>
+				<h3 style="margin-bottom: 20px;">Case Study: ForcedFable.com</h3>
 				<p>ForcedFable is a gaming culture blog/community dedicated to advancing game culture through the use of various different forms of media.</p>
-				<a class="btn bluebg" style="margin-top: 60px;" href="#">Read More</a>
+				<a class="btn bluebg pull-right" style="margin-top: 60px;" href="#">Read More</a>
 			</div>
 
 		</section>
@@ -112,7 +132,7 @@
 			</ul>
 		</section>
 
-
+		<script type="text/javascript" src="js/space.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>

@@ -4,6 +4,8 @@ var sloganSpan = document.getElementById("slogan").querySelector("span"),
 
 var start = function(){
 	window.setTimeout(updateSlogan, 500);
+
+	startSpace();
 };
 
 var updateSlogan = function(){
@@ -12,6 +14,14 @@ var updateSlogan = function(){
 	
 	if (adjIndex == adjectives.length - 1)
 	{
+		var hideCall = document.getElementById("hide-call"),
+			className = "show";
+			
+		if (hideCall.classList)
+			hideCall.classList.add(className);
+		else
+			hideCall.className += ' ' + className;
+
 		sloganSpan.style.color = "#292929";
 		return;
 	}
