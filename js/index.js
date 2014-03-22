@@ -1,5 +1,5 @@
 var sloganSpan = document.getElementById("slogan").querySelector("span"),
-	adjectives = ["Radical", "Unbelievable", "Revolutionary", "Beautiful", "Functional", "Great"],
+	adjectives = ["Radical", "Unbelievable", "Revolutionary", "Beautiful", "Functional", "Great", ""],
 	adjIndex = 0;
 
 var start = function(){

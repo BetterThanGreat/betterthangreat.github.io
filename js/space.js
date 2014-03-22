@@ -25,6 +25,15 @@ var startSpace = function(){
 	app.emitters.push(initialEmitter);
 
 	window.requestAnimationFrame(animateFrame);
+
+	window.addEventListener("resize", resizeCanvas);
+};
+
+var resizeCanvas = function(){
+	var splashContainer = document.getElementById("splash");
+
+	app.canvas.height = splashContainer.clientHeight - 100;
+	app.canvas.width = splashContainer.clientWidth;
 };
 
 var animateFrame = function(){
