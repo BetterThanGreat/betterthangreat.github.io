@@ -61,7 +61,10 @@ body {
 	font-family: "proxima-nova", sans-serif;
 	font-weight: 400;
 	color: #292929;
-	background: #000;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 body > section {
@@ -250,7 +253,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 	background: #7DB9E8;
 }
 
-#about:after, #caseStudy:before {
+#about:after, #caseStudy:before, #testimonials blockquote:before, #testimonials blockquote:after {
 	content: '';
 	display: block;
 	width: 100%;
@@ -258,7 +261,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 	background-image: url("../images/clouds.png");
 }
 
-#caseStudy:before {
+#caseStudy:before, #testimonials blockquote:after {
 	-webkit-transform: rotate(180deg);
 }
 
@@ -311,19 +314,59 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 	color: WHITE;
 }
 
+/*================================================
+TESTIMONIALS
+================================================*/
+
 #testimonials {
+    padding: 50px inherit;
+    background: cornflowerblue;
 }
 
-#testimonials h2 {
-	text-align: center;
+#testimonials blockquote:before, #testimonials blockquote:after {
+    max-height: 150px;
 }
 
-#testimonials li img {
-	float: left;
-	border-radius: 50%;
-	padding: 5px 10px 0 0;
+.testimonial-slide {
+    font-size: 1.6em;
 }
 
-#testimonials footer {
-	float: right;
+#testimonials blockquote {
+    max-width: 100%;
+    width: 500px;
+    margin: 0 auto;
+}
+
+#testimonials blockquote p {
+    padding: 25px;
+    background: WHITE;
+    color: cornflowerblue;
+}
+
+.testimonial-slide > img, .testimonial-slide blockquote > footer{
+    display: none !important;
+}
+
+#testimonials .slick-dots {
+    position: inherit;
+}
+
+#testimonials .slick-dots li {
+    height: 100px;
+    width: 150px;
+    
+    margin: 0 25px;
+}
+
+#testimonials .slick-dots li:not(.slick-active) {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%); -o-filter: grayscale(100%);
+    filter: url(#greyscale);
+    filter: gray;
+    -webkit-filter: grayscale(1);
+}
+
+#testimonials .slick-dots li img {
+    border-radius: 50%;
 }

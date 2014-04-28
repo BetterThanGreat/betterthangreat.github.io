@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="css/reset.css" type="text/css">
 		<link rel="stylesheet" href="css/screen.css" type="text/css">
 		<link rel="stylesheet" href="icons/style.css" type="text/css">
+		<link rel="stylesheet" href="libs/slick/slick/slick.css" type="text/css">
 
 		<script type="text/javascript" src="//use.typekit.net/wzs7hse.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -98,9 +99,9 @@
 				<img src="images/forcedfablechrome@2x.png">
 			</div>
 
-			<div class="grid-1-2 home-module">
+			<div class="grid-1-2 home-module" style="margin-top: 5%;">
 				<h3 style="margin-bottom: 20px;">Case Study: ForcedFable.com</h3>
-				<p>ForcedFable is a gaming culture blog/community dedicated to advancing game culture through the use of various different forms of media.</p>
+				<p>ForcedFable is a gaming culture blog/community dedicated to advancing game culture through the use of various forms of online media. We collaborated with these guys to create a digital platform aimed at connecting all of their various social media presences across the web.</p>
 				<a class="btn bluebg pull-right" style="margin-top: 60px;" href="#">Read More</a>
 			</div>
 
@@ -108,31 +109,47 @@
 
 		<!-- Testimonials -->
 		<section id="testimonials">
-			<h2>See what people are saying about us</h2>
-			<ul class="grid">
-				<li class="grid-1-2 home-module">
+			<div class="single-item slider">
+				<div class="testimonial-slide">
 					<img src="http://placesheen.com/100/100" alt="">
 					<blockquote>
 						<p>I love these guys! Their work is second to none, and they responded immediately to any questions that I had.</p>
-						<footer>
-							Charlie Sheen, Actor
-						</footer>
+						<footer>Charlie Sheen, Actor</footer>
 					</blockquote>
-				</li>
+				</div>
 
-				<li class="grid-1-2 home-module">
+				<div class="testimonial-slide">
 					<img src="http://placesheen.com/100/100" alt="">
 					<blockquote>
 						<p>I love these guys! Their work is second to none, and they responded immediately to any questions that I had.</p>
-						<footer>
-							Charlie Sheen, Actor
-						</footer>
+						<footer>Charlie Sheen, Actor</footer>
 					</blockquote>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</section>
+		
+		<footer id="footer-body">
+		    
+		</footer>
 
+        <script type="text/javascript" src="libs/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="js/space.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="libs/slick/slick/slick.min.js"></script>
+		<script type="text/javascript">
+		    
+		    $(".single-item").slick({
+		        autoplay: true,
+		        autoplaySpeed: 2000,
+		        dots: true,
+		        customPaging: function(slider, i) {
+		            var slide = slider.$slides[i],
+		                imgURL = $(slide).find("img").attr("src"),
+		                footerText = $(slide).find("footer").html();
+		            return '<img src="' + imgURL + '"><p class="attribution">' + footerText + '</p>';
+		        }
+		    });
+		    
+		</script>
 	</body>
 </html>
