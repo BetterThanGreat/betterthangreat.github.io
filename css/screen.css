@@ -85,43 +85,6 @@ h2 { font-size: 1.8em; }
 h3 { font-size: 1.5em; }
 h4 { font-size: 1.3em; }
 
-a.btn {
-	display: inline-block;
-
-	background: #ec6f6d;
-	text-decoration: none;
-	text-align: center;
-	color: #292929;
-	padding: 0 5px;
-
-	border-bottom: 3px solid #E65E5C;
-
-	margin-top: 10px;
-	border-radius: 20px;
-}
-
-a.btn:active {
-	border-bottom: none;
-	border-top: 3px solid white;
-}
-
-a.btn.bluebg:active {
-	border-top-color: cornflowerblue;
-}
-
-a.btn:hover {
-	color: #FFFA81;
-}
-
-a.btn:before, a.btn:after {
-	content: '★';
-	padding: 0 10px;
-	color: #FFFA81;
-}
-
-a.btn:before { float: left; }
-a.btn:after { float: right; }
-
 .home-module {
 	padding: 50px;
 	line-height: 2.5em;
@@ -253,7 +216,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 	background: #7DB9E8;
 }
 
-#about:after, #caseStudy:before, #testimonials blockquote:before, #testimonials blockquote:after {
+#about:after, .case-study-home:before, #testimonials blockquote:before, #testimonials blockquote:after {
 	content: '';
 	display: block;
 	width: 100%;
@@ -261,7 +224,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 	background-image: url("../images/clouds.png");
 }
 
-#caseStudy:before, #testimonials blockquote:after {
+.case-study-home:before, #testimonials blockquote:after {
 	-webkit-transform: rotate(180deg);
 }
 
@@ -287,7 +250,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 	margin: 15px;
 	padding: 20px;
 	border-radius: 50%;
-	background: cornflowerblue;
+	background: #7DB9E8;
 
 	box-shadow: 3px 3px 0 rgb(68, 68, 224);
 
@@ -306,12 +269,59 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 #what li a:hover {
 }
 
-#caseStudy {
-	background: cornflowerblue;
+/*================================================
+CASE STUDIES
+================================================*/
+
+.case-study {
+    background: #7DB9E8;
 }
 
-#caseStudy p {
+.case-study h1 {
+    padding: 40px inherit;
+    text-align: center;
+    
+    font-weight: 800;
+    color: WHITE;
+}
+
+.case-study p {
 	color: WHITE;
+	margin-bottom: 20px;
+}
+
+.case-study .content {
+    max-width: 100%;
+    width: 600px;
+    margin: 0 auto;
+    
+    padding: 0 20px;
+}
+
+.case-study .content h2 {
+    margin: 20px auto;
+}
+
+.case-study .btn-full {
+    margin-bottom: 60px;
+}
+
+#case-studies {
+    background: #7DB9E8;
+    padding: 40px inherit;
+}
+
+#case-studies > div {
+    padding: 0 25px;
+}
+
+#case-studies img {
+    display: block;
+    margin: 0 auto;
+}
+
+#case-studies .btn {
+    margin: 15px auto;
 }
 
 /*================================================
@@ -320,7 +330,7 @@ TESTIMONIALS
 
 #testimonials {
     padding: 50px inherit;
-    background: cornflowerblue;
+    background: #7DB9E8;
 }
 
 #testimonials blockquote:before, #testimonials blockquote:after {
@@ -340,7 +350,7 @@ TESTIMONIALS
 #testimonials blockquote p {
     padding: 25px;
     background: WHITE;
-    color: cornflowerblue;
+    color:  #7DB9E8;
 }
 
 .testimonial-slide > img, .testimonial-slide blockquote > footer{
@@ -369,4 +379,58 @@ TESTIMONIALS
 
 #testimonials .slick-dots li img {
     border-radius: 50%;
+    height: 100px; width: 100px;
 }
+
+/*================================================
+BUTTONS
+================================================*/
+a.btn {
+	display: inline-block;
+
+	background: #ec6f6d;
+	text-decoration: none;
+	text-align: center;
+	color: #292929;
+	padding: 0 5px;
+
+	border-bottom: 3px solid #E65E5C;
+
+	margin-top: 10px;
+	border-radius: 20px;
+}
+
+a.btn-lg {
+    padding: 10px;
+}
+
+a.btn-center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+a.btn-full {
+    display: block;
+}
+
+a.btn:active {
+	border-bottom: none;
+	border-top: 3px solid white;
+}
+
+a.btn.bluebg:active {
+	border-top-color:  #7DB9E8;
+}
+
+a.btn:hover {
+	color: #FFFA81;
+}
+
+a.btn:before, a.btn:after {
+	content: '★';
+	padding: 0 10px;
+	color: #FFFA81;
+}
+
+a.btn:before { float: left; }
+a.btn:after { float: right; }
