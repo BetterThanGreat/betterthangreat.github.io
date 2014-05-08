@@ -1,0 +1,31 @@
+		<!-- Footer -->
+		<footer id="footer-body">
+			<div class="content">
+			    <div class="copyright-info">
+			    	<p>This site and all contents found within are Copyright &copy; 2014 by Better Than Great (or their respective owners)</p>
+			    </div>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+        <script type="text/javascript" src="/libs/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="/js/space.js"></script>
+		<script type="text/javascript" src="/js/index.js"></script>
+		<script type="text/javascript" src="/libs/slick/slick/slick.min.js"></script>
+		<script type="text/javascript">
+		    
+		    $(".single-item").slick({
+		        autoplay: true,
+		        autoplaySpeed: 3000,
+		        dots: true,
+		        customPaging: function(slider, i) {
+		            var slide = slider.$slides[i],
+		                imgURL = $(slide).find("img").attr("src"),
+		                footerText = $(slide).find("footer").html();
+		            return '<img src="' + imgURL + '"><p class="attribution">' + footerText + '</p>';
+		        }
+		    });
+		    
+		</script>
+	</body>
+</html>

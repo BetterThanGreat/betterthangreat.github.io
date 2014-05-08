@@ -1,0 +1,40 @@
+{% include head.html %}
+
+		<!-- Splash! -->
+		<section id="splash">
+
+			<canvas id="myCanvas">
+			</canvas>
+
+			<ul class="social">
+				<li><a href="http://twitter.com/bettergreatco"><i class="icon-twitter"></i></a></li>
+				<li><a href="#"><i class="icon-facebook"></i></a></li>
+				<li><a href="http://github.com/BetterThanGreat"><i class="icon-github"></i></a></li>
+			</ul>
+
+			<div class="browser">
+				<div class="content">
+					<a href="/"><h1 class="logo"><img src="/images/btglogo1.png" height="150" alt="Better Than Great"></h1></a>
+					<h2 id="slogan">We Build <span>Incredible</span> Digital Products</h2>
+
+					<noscript>
+						<style>
+							#hide-call {
+								max-height: 200px;
+							}
+						</style>
+					</noscript>
+
+					<div id="hide-call">
+						<p>But not just any digital products! We build websites and software that get your users excited, engaged, and coming back!</p>
+						<a class="btn width-50 center" href="#">Hire Us</a>
+						<p><small>or keep scrolling &darr;</small></p>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		{{ content }}
+
+{% include footer.html %}

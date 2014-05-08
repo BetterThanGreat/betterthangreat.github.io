@@ -1,323 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Better Than Great - A Digital Solutions Agency</title>
-		<link rel="stylesheet" type="text/css" href="css/reset.css">
-		<link rel="stylesheet" type="text/css" href="css/screen.css">
-
-		<script type="text/javascript" src="//use.typekit.net/wzs7hse.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-		<style>
-		
-		    body {
-		        background: #000;
-		    }
-
-			#comingSoon {
-				position: absolute;
-				z-index: 1;
-				top: 20%; 
-				right: 0; left: 0;
-				text-align: center;
-				margin: 0 auto;
-
-				width: 80%;
-				max-width: 420px;
-
-				background: BLACK;
-			}
-
-            @media screen and (max-width: 420px){
-                #comingSoon {
-                    top: 0;
-                }
-            }
-
-			#comingSoon h1 {
-				line-height: 2em;
-			}
-
-			#comingSoon a {
-				color: rgb(11, 96, 107);
-				text-decoration: none;
-			}
-
-			#comingSoon a:hover {
-				text-decoration: underline;
-			}
-
-			#comingSoon q {
-				display: inline-block;
-				margin: 5px auto;
-			}
-			
-			#myCanvas {
-				position: fixed;
-				z-index: 0;
-			}
-
-		</style>
-
-	</head>
-
-	<body onload="pageLoadHandler()" style="margin: 0; overflow: hidden;">
-
-		<div id="comingSoon">
-
-			<img src="images/btglogo1.png" height="100">
-
-			<h1>Coming Soon!</h1>
-
-			<p><u>Better Than Great</u> is a product development agency specializing in building for the web. We're still getting things sorted out here, but we'd still love to hear from you! Drop us a line at <a href="mailto:jordan@betterthangreat.co">jordan@betterthangreat.co</a></p>
-
-			<q><img src="http://www.gravatar.com/avatar/c5c2bf91367bd7a36cd7a936e137eab4.png?s=25" style="border-radius: 50%;vertical-align: middle;"> Jordan Foreman - Founder and CEO</q>
-		</div>
-
-		<canvas id="myCanvas" height="100" width="100">
-		</canvas>
-		
-		<script>
-		
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		ga('create', 'UA-49193836-1', 'betterthangreat.co');
-		ga('send', 'pageview');
-		
-		</script>
-
-		<script type="text/javascript">
-
-			var app = {
-				canvas : null,
-				context : null,
-				particleColor : null,
-				particles : [],
-				emitters : [],
-				maxParticles : 800,
-				emissionRate : 5,
-			};
-
-			var pageLoadHandler = function(){
-				app.canvas = document.getElementById("myCanvas");
-				app.canvas.height = window.innerHeight;
-				app.canvas.width = window.innerWidth;
-
-				start();
-			};
-
-			var start = function(){
-				app.context = app.canvas.getContext("2d");
-
-				app.particleColor = new RGB(0, 100, 150);
-
-				var emitCenter = new Vector(app.canvas.width / 2, app.canvas.height / 2);
-
-				var initialEmitter = new Emitter(emitCenter, Vector.fromAngle(0, 2), 360);
-				app.emitters.push(initialEmitter);
-
-				window.requestAnimationFrame(animateFrame);
-			};
-
-			var animateFrame = function(){
-
-				clear();
-				update();
-				draw();
-				queue();
-
-			};
-
-			var clear = function(){
-				app.context.clearRect(0, 0, app.canvas.width, app.canvas.height);
-			};
-
-			var update = function(){
-
-				var h = app.canvas.height,
-					w = app.canvas.width;
-
-				// Reset backdrop
-				app.context.fillStyle = "rgb(0,0,0)";
-				app.context.fillRect(0, 0, w, h);
-
-				addNewParticles();
-				plotParticles(w, h);
-
-			};
-
-			var draw = function(){
-				drawParticles();
-			};
-
-			var queue = function(){
-				window.requestAnimationFrame(animateFrame);
-			};
-
-			/*
-			Generates new particles (based on emitters) if we don't have too many
-			*/
-			var addNewParticles = function(){
-				var maxParticles = app.maxParticles,
-					emissionRate = app.emissionRate;
-
-				if (app.particles.length > maxParticles) return;
-
-				for (var i = 0; i < app.emitters.length; i++) 
-				{	
-					for (var j = 0; j < emissionRate; j++) 
-					{
-						app.particles.push(app.emitters[i].emitParticle());
-					}
-				}
-			};
-
-			/*
-			Removes particles that are outside of bounds and moves those that we want to keep
-			*/
-			var plotParticles = function(boundsX, boundsY) {
-
-				var currentParticles = [];
-
-				for (var i = 0; i < app.particles.length; i++)
-				{
-					var particle = app.particles[i],
-						pos = particle.position;
-
-					if (pos.x < 0 || pos.x > boundsX ||
-						pos.y < 0 || pos.y > boundsY)
-						continue;
-
-					particle.move();
-					currentParticles.push(particle);
-				}
-
-				app.particles = currentParticles;
-
-			};
-
-			/*
-			Loops through and draws all of our current on-screen particles
-			*/
-			var drawParticles = function(){
-				var particleSize = 1;
-
-				app.particleColor.increment();
-				app.context.fillStyle = app.particleColor.toString();
-
-				for (var i = 0; i < app.particles.length; i++)
-				{
-					var position = app.particles[i].position;
-					app.context.fillRect(position.x, position.y, particleSize, particleSize);
-
-					// app.context.arc(position.x, position.y, particleSize, 0, 2 * Math.PI, false);
-					app.context.fill();
-				}
-			};
-
-			/**
-			
-			Classes
-			
-			**/
-
-			// VECTOR.js
-			var Vector = function(x, y) {
-				this.x = x || 0;
-				this.y = y || 0;
-			};
-
-			// Add a vector to another
-			Vector.prototype.add = function(vector) {
-				this.x += vector.x;
-				this.y += vector.y;
-			}
-
-			// Gets the length of the vector
-			Vector.prototype.getMagnitude = function () {
-				return Math.sqrt(this.x * this.x + this.y * this.y);
-			};
-
-			// Gets the angle accounting for the quadrant we're in
-			Vector.prototype.getAngle = function () {
-				return Math.atan2(this.y,this.x);
-			};
-
-			// Allows us to get a new vector from angle and magnitude
-			Vector.fromAngle = function (angle, magnitude) {
-				return new Vector(magnitude * Math.cos(angle), magnitude * Math.sin(angle));
-			};
-
-			// Creates a new vector based on an input vector
-			Vector.prototype.clone = function() {
-				return new Vector(this.x, this.y);
-			};
-
-			// RGB.js
-			var RGB = function(r, g, b) {
-				this.r = r || 0;
-				this.g = g || 0;
-				this.b = b || 0;
-			};
-
-			RGB.prototype.toString = function(){
-				return "rgb(" + this.r + "," + this.g + "," + this.b + ")";
-			};
-
-			RGB.prototype.increment = function(){
-				this.r = this.r < 255 ? this.r + 1 : 0;
-				this.g = this.g < 255 ? this.g + 1 : 150;
-				this.b = this.b < 255 ? this.b + 1 : 100;
-			}
-
-			// PARTICLE.js
-			var Particle = function(point, velocity, acceleration) {
-				this.position = point || new Vector(0, 0);
-				this.velocity = velocity || new Vector(0, 0);
-				this.acceleration = acceleration || new Vector(0, 0);
-			};
-
-			Particle.prototype.move = function() {
-				// Add our current acceleartion to our current velocity
-				this.velocity.add(this.acceleration);
-
-				// Add our current velocity to our position
-				this.position.add(this.velocity);
-			};
-
-			// EMITTER.js
-			var Emitter = function(point, velocity, spread){
-				this.position = point; // Vector
-				this.velocity = velocity; // Vector
-				this.spread = spread || Math.PI / 32; //Possible angles = velocity +/- spread
-				this.drawColor = "#999";
-			};
-
-			Emitter.prototype.emitParticle = function(){
-				// Use an angle randomized over the spread so we have more of a "spray"
-				var angle = this.velocity.getAngle() + this.spread - (Math.random() * this.spread * 2);
-
-				// The magnitude of the emitter's velocity
-				var magnitude = this.velocity.getMagnitude();
-
-				// The emitter's position
-				var position = this.position.clone();//new Vector(this.position.x, this.position.y);
-
-				// New velocity based off of the calculated angle and magnitude
-				var velocity = Vector.fromAngle(angle, magnitude);
-
-				// return new particle!
-				return new Particle(position, velocity);
-			}; 
-
-		</script>
-
-	</body>
-
-</html>
+---
+layout: default
+title: Hello, World!
+---
+
+		<!-- Headline -->
+		<section id="about">
+			<div class="grid">
+				<div class="grid-1-2 home-module" style="text-align: center;">
+					<img src="images/imac.png" />
+				</div>
+
+				<div class="grid-1-2 home-module">
+					<h2 style="margin-bottom: 20px;">Your Vision. Brought to Life.</h2>
+					<p>We're a full-stack digital product agency specializing in developing for the web and mobile. We &hearts; the web, and we want to help make your vision a reality!</p>
+					<a class="btn" style="margin-top: 60px;" href="#">Make your dream come true</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- What we do -->
+		<section id="what">
+			<ul class="grid">
+				<li class="grid-1-3">
+					<i class="icon-pencil"></i>
+					<h3>Website Design</h3>
+					<p>You worked hard to establish your brand, and your website should reflect that. We'll work closely with you to translate your unique brand to the web.</p>
+					<a href="#">Find out more &rarr;</a>
+				</li>
+
+				<li class="grid-1-3">
+					<i class="icon-cogs"></i>
+					<h3>Web Apps</h3>
+					<p>Got an idea for the next great web app? We want to build it for you! We'll use the latest and greatest tech to find the best solution for you.</p>
+					<a href="#">Find out more &rarr;</a>
+				</li>
+
+				<li class="grid-1-3">
+					<i class="icon-mobile"></i>
+					<h3>Mobile Ready!</h3>
+					<p>We make sure that your product works well across all possible devices. We believe your site should be accessible from wherever someone might visit - from desktop to mobile.</p>
+					<a href="#">Find out more &rarr;</a>
+				</li>
+			</ul>
+		</section>
+
+		<section class="grid case-study case-study-home">
+
+			<div class="grid-1-2 home-module" style="text-align: center;">
+				<img src="images/forcedfablechrome@2x.png">
+			</div>
+
+			<div class="grid-1-2 home-module" style="margin-top: 5%;">
+				<h3 style="margin-bottom: 20px;">Case Study: ForcedFable.com</h3>
+				<p>ForcedFable is a gaming culture blog/community dedicated to advancing game culture through the use of various forms of online media. We collaborated with these guys to create a digital platform aimed at connecting all of their various social media presences across the web. <a href="/forced-fable">Read More &rarr;</a></p>
+				<a class="btn bluebg pull-right" style="margin-top: 60px;" href="/case-studies">More Case Studies</a>
+			</div>
+
+		</section>
+
+		<!-- Testimonials -->
+		<section id="testimonials">
+			<div class="single-item slider">
+				<div class="testimonial-slide">
+					<img src="images/bohr.jpg" alt="Jordan Bohr (@doominglight)">
+					<blockquote>
+						<p>Working with Jordan has been a pleasure. His website design was just what we were looking for. Any time we have wanted something altered or adapted, he has delivered</p>
+						<footer>Jordan Bohr <br>ForcedFable</footer>
+					</blockquote>
+				</div>
+
+				<div class="testimonial-slide">
+					<img src="http://placesheen.com/100/100" alt="">
+					<blockquote>
+						<p>I love these guys! Their work is second to none, and they responded immediately to any questions that I had.</p>
+						<footer>Charlie Sheen <br>Actor</footer>
+					</blockquote>
+				</div>
+			</div>
+		</section>

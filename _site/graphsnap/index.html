@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Better Than Great - A Digital Solutions Studio</title>
+		
+		<link rel="stylesheet" href="/css/reset.css" type="text/css">
+		<link rel="stylesheet" href="/css/screen.css" type="text/css">
+		<link rel="stylesheet" href="/icons/style.css" type="text/css">
+		<link rel="stylesheet" href="/libs/slick/slick/slick.css" type="text/css">
+
+		<script type="text/javascript" src="//use.typekit.net/wzs7hse.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	</head>
+	<body onload="start()">
+
+		<!-- Splash! -->
+		<section id="splash">
+
+			<canvas id="myCanvas">
+			</canvas>
+
+			<ul class="social">
+				<li><a href="http://twitter.com/bettergreatco"><i class="icon-twitter"></i></a></li>
+				<li><a href="#"><i class="icon-facebook"></i></a></li>
+				<li><a href="http://github.com/BetterThanGreat"><i class="icon-github"></i></a></li>
+			</ul>
+
+			<div class="browser">
+				<div class="content">
+					<a href="/"><h1 class="logo"><img src="/images/btglogo1.png" height="150" alt="Better Than Great"></h1></a>
+					<h2 id="slogan">We Build <span>Incredible</span> Digital Products</h2>
+
+					<noscript>
+						<style>
+							#hide-call {
+								max-height: 200px;
+							}
+						</style>
+					</noscript>
+
+					<div id="hide-call">
+						<p>But not just any digital products! We build websites and software that get your users excited, engaged, and coming back!</p>
+						<a class="btn width-50 center" href="#">Hire Us</a>
+						<p><small>or keep scrolling &darr;</small></p>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+				<section class="case-study">
+			
+			<h1>GraphSnap</h1>
+
+			<div class="grid home-module" style="text-align: center;">
+				<img src="/images/graphsnapScreen.png">
+			</div>
+			
+			<div class="grid content">
+			
+			    <a href="http://graphsnap.herokuapp.com" class="btn btn-lg btn-full">Check it out!</a>
+			
+			    <h2>Getting Started</h2>
+                <p>GraphSnap is the brainchild of Jordan Shaw, and attempts to create a major paradigm shift in the bioinformatics sector. As we all know, many companies today are stuck using software built on outdated platforms and without the user in mind. GraphSnap seeks to fix this. Built on emerging (yet stable) technologies like Node.js and designed with the user in mind, GraphSnap will revolutionize how companies that rely on biological data can interact with that information.</p>
+                <p>We currently collaborate with Shaw and his biotech company, BioBacTrac to continue to build on and improve both the GraphSnap application and marketing based external site.</p>
+                <p>Please keep in mind that this project is currently being built and is considered to be in the Alpha stages of development.</p>
+                <h2>Experience Planning</h2>
+                <img src="/images/graphsnapmocks.jpg">
+                <p>GraphSnap is built with the future biotech lab in mind - and that future is quickly transitioning away from the desktop. Lab technicians want to be able to track data immediately upon discovery. Rather than dictating written data into a desktop that could be offices away, GraphSnap is will allow users to enter data from their tablet or smartphone without having to leave the lab.</p>
+                <p>Because GraphSnap is still technically an HTML5 web application and not a native app (this is intentional to reach as many devices at launch as is possible) is is inherently responsive, and boasts many mobile UX best practices.</p>
+                <h2>Development</h2>
+                <p>Design and development have been done in tandem for this project, as the two are not so deeply rooted. Because this is a data-driven application, the pipeline for data is quite a bit less flexible than the visual output of said data. In that way, the application is primarily API-driven (this is also intentional, as this will pave the way for future applications that consume our REST API), and is built using Node.js and the fabulous Express.js framework.</p>
+                
+			</div>
+
+		</section>
+
+
+		<!-- Footer -->
+		<footer id="footer-body">
+			<div class="content">
+			    <div class="copyright-info">
+			    	<p>This site and all contents found within are Copyright &copy; 2014 by Better Than Great (or their respective owners)</p>
+			    </div>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+        <script type="text/javascript" src="/libs/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="/js/space.js"></script>
+		<script type="text/javascript" src="/js/index.js"></script>
+		<script type="text/javascript" src="/libs/slick/slick/slick.min.js"></script>
+		<script type="text/javascript">
+		    
+		    $(".single-item").slick({
+		        autoplay: true,
+		        autoplaySpeed: 3000,
+		        dots: true,
+		        customPaging: function(slider, i) {
+		            var slide = slider.$slides[i],
+		                imgURL = $(slide).find("img").attr("src"),
+		                footerText = $(slide).find("footer").html();
+		            return '<img src="' + imgURL + '"><p class="attribution">' + footerText + '</p>';
+		        }
+		    });
+		    
+		</script>
+	</body>
+</html>
