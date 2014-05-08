@@ -335,7 +335,7 @@ TESTIMONIALS
 }
 
 #testimonials blockquote:before, #testimonials blockquote:after {
-    max-height: 150px;
+    max-height: 100px;
 }
 
 .testimonial-slide {
