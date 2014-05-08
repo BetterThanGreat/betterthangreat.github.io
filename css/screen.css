@@ -61,6 +61,7 @@ body {
 	font-family: "proxima-nova", sans-serif;
 	font-weight: 400;
 	color: #292929;
+	overflow-x: hidden;
 }
 
 html {
@@ -434,3 +435,31 @@ a.btn:before, a.btn:after {
 
 a.btn:before { float: left; }
 a.btn:after { float: right; }
+
+/*================================================
+FOOTER
+================================================*/
+#footer-body {
+	min-height: 581px;
+
+	background-image: url('../images/buildings.png');
+	background-color: #7db9e8;
+	background-position-x: -400px;
+	background-position-y: 1px;
+
+	padding-top: 250px;
+}
+
+#footer-body .content {
+	background: rgba(0, 0, 0, .75);
+	color: WHITE;
+	padding: 10px 20px;
+
+	max-width: 100%;
+	width: 500px;
+	margin: 0 auto;
+}
+
+.copyright-info {
+	text-align: center;
+}
